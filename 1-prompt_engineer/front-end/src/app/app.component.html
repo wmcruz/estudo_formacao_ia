@@ -1,0 +1,141 @@
+<div class="m3-dashboard">
+  <!-- Top App Bar -->
+  <header class="m3-top-app-bar">
+    <div class="m3-app-bar-leading">
+      <span class="material-symbols-outlined logo-icon">explore</span>
+      <h1 class="m3-app-bar-title" id="main-title">Post Explorer</h1>
+    </div>
+    <div class="m3-app-bar-trailing">
+      <div class="md-chip md-chip-primary">
+        <span class="material-symbols-outlined" style="font-size: 16px;">code</span>
+        <span>Angular 17</span>
+      </div>
+      <div class="md-chip md-chip-secondary">
+        <span class="material-symbols-outlined" style="font-size: 16px;">dns</span>
+        <span>Spring Boot</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="m3-content">
+    <!-- Search Section -->
+    <section class="md-card m3-search-section md-animate-fade-in" id="search-section">
+      <div class="m3-search-header">
+        <h2 class="m3-section-title">Buscar Post por Número</h2>
+        <p class="m3-section-subtitle">Digite o ID do post desejado para filtrar ou buscar diretamente do backend.</p>
+      </div>
+
+      <div class="m3-search-bar">
+        <div class="md-text-field-wrapper m3-search-field">
+          <input
+            type="text"
+            id="post-search-input"
+            class="md-input"
+            placeholder="Ex: 1, 42, 100..."
+            [(ngModel)]="searchId"
+            (keyup.enter)="searchPost()"
+          />
+        </div>
+        <button id="search-submit-btn" class="md-btn md-btn-filled" (click)="searchPost()" [disabled]="loading">
+          <span class="material-symbols-outlined">search</span>
+          <span>Buscar</span>
+        </button>
+        <button id="search-reset-btn" class="md-btn md-btn-outlined" (click)="clearSearch()" [disabled]="loading" *ngIf="isSearched || searchId">
+          <span class="material-symbols-outlined">refresh</span>
+          <span>Limpar</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Error Alert -->
+    <div class="md-alert-error md-animate-fade-in" id="error-alert-panel" *ngIf="searchError">
+      <span class="material-symbols-outlined">error</span>
+      <span>{{ searchError }}</span>
+    </div>
+
+    <!-- Main Results Layout (Dynamic Split/Grid Column Layout) -->
+    <div class="m3-grid-layout" [class.m3-split-layout]="selectedPost" id="results-section">
+      
+      <!-- Column 1: Featured Detail (only when selectedPost exists) -->
+      <div class="m3-detail-column md-animate-fade-in" *ngIf="selectedPost">
+        <article class="md-card m3-detail-card" [id]="'featured-post-' + selectedPost.id">
+          <div class="m3-detail-card-header">
+            <span class="md-chip md-chip-primary">ID: #{{ selectedPost.id }}</span>
+            <span class="md-chip md-chip-secondary">Autor ID: {{ selectedPost.userId }}</span>
+            <button class="m3-close-btn" (click)="clearSearch()" title="Fechar detalhes">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+          <h3 class="m3-detail-title">{{ selectedPost.title }}</h3>
+          <p class="m3-detail-body">{{ selectedPost.body }}</p>
+        </article>
+      </div>
+
+      <!-- Column 2: Always Visible Table of Posts -->
+      <div class="m3-table-column">
+        <div class="m3-table-header">
+          <h2 class="m3-table-title">Tabela de Posts</h2>
+          <span class="md-chip">{{ posts.length }} posts disponíveis</span>
+        </div>
+
+        <!-- Skeleton loader / table spinner -->
+        <div class="m3-table-loading" *ngIf="loading && posts.length === 0">
+          <div class="m3-spinner"></div>
+          <p>Carregando posts do servidor...</p>
+        </div>
+
+        <!-- Table Display -->
+        <div class="md-table-container m3-scrollable-table" *ngIf="posts.length > 0">
+          <table class="md-table">
+            <thead>
+              <tr>
+                <th style="width: 80px;">ID</th>
+                <th style="width: 100px;">Autor</th>
+                <th>Título</th>
+                <th style="width: 120px; text-align: center;">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr 
+                *ngFor="let post of posts" 
+                [class.row-selected]="selectedPost?.id === post.id"
+                (click)="selectPost(post)"
+              >
+                <td><strong>#{{ post.id }}</strong></td>
+                <td>{{ post.userId }}</td>
+                <td class="m3-table-post-title">{{ post.title }}</td>
+                <td style="text-align: center;">
+                  <button class="md-btn md-btn-tonal m3-table-action-btn" (click)="selectPost(post); $event.stopPropagation()">
+                    <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span>
+                    <span>Ver</span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Empty State panel -->
+        <div class="md-card m3-empty-card" *ngIf="posts.length === 0 && !loading && !searchError">
+          <span class="material-symbols-outlined empty-icon">inbox</span>
+          <h3>Nenhum post disponível</h3>
+          <p>Não há posts carregados. Certifique-se de que o backend está ativo na porta 8080 e recarregue.</p>
+          <button class="md-btn md-btn-filled" (click)="loadAllPosts()" style="margin-top: 16px;">
+            <span class="material-symbols-outlined">refresh</span>
+            <span>Recarregar</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="m3-footer">
+    <p>
+      Dashboard criado para o estudo de Formação IA (Prompt Engineer)
+      <span class="heart">♥</span>
+    </p>
+  </footer>
+</div>

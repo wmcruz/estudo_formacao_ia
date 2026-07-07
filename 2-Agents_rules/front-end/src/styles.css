@@ -1,0 +1,37 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #12122a;
+  color: #ffffff;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mat-mdc-paginator {
+  background: #1e1e3a !important;
+  color: #e0e0ff !important;
+  border-radius: 0 0 12px 12px;
+}
+
+.mat-mdc-paginator .mat-mdc-paginator-navigation-button {
+  color: #a5b4fc !important;
+}
+
+.mat-mdc-paginator .mat-mdc-paginator-page-size-label,
+.mat-mdc-paginator .mat-mdc-paginator-range-label {
+  color: #c4b5fd !important;
+}
+
+.mat-mdc-paginator .mat-mdc-select-value-text {
+  color: #e0e0ff !important;
+}

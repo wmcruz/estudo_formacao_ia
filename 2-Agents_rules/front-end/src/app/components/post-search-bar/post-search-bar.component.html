@@ -1,0 +1,23 @@
+<form class="search-form" (submit)="onSearchSubmit(); $event.preventDefault()">
+  <div class="search-container">
+    <div class="input-wrapper">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor">
+        <path d="M784-120 532-372q-30 24-74 38t-90 14q-117 0-198.5-81.5T88-600q0-117 81.5-198.5T368-880q117 0 198.5 81.5T648-600q0 46-14 90t-38 74l252 252-64 64ZM368-292q128 0 218-90t90-218q0-128-90-218t-218-90q-128 0-218 90t-90 218q0 128 90 218t218 90Z"/>
+      </svg>
+      <input
+        type="number"
+        id="postIdInput"
+        class="search-input"
+        placeholder="Enter post number (e.g. 1)..."
+        [ngModel]="postId()"
+        (ngModelChange)="postId.set($event.toString())"
+        name="postId"
+        min="1"
+        required
+      />
+    </div>
+    <button type="submit" class="search-button">
+      Search
+    </button>
+  </div>
+</form>

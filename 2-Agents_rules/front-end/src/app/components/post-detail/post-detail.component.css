@@ -1,0 +1,93 @@
+.post-card {
+  background: #1e1e3a;
+  border: 1px solid #2d2d5e;
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.post-card__badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #312e81, #4c1d95);
+  border: 1px solid #6366f1;
+  border-radius: 30px;
+  padding: 6px 14px;
+}
+
+.badge-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+}
+
+.badge-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.post-card__user-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #c4b5fd;
+  font-size: 0.85rem;
+  background: #1a1a3e;
+  border-radius: 30px;
+  padding: 6px 14px;
+  border: 1px solid #2d2d5e;
+}
+
+.post-card__divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  margin: 20px 0;
+}
+
+.post-card__title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin: 0 0 14px 0;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.post-card__content {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.75;
+  margin: 0;
+  font-style: italic;
+}
