@@ -1,0 +1,72 @@
+.table-container {
+  overflow-x: auto;
+}
+
+.post-table {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+
+::ng-deep .post-paginator {
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-radius: 0 0 12px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.875rem;
+  min-height: 56px;
+}
+
+::ng-deep .post-paginator .mat-mdc-paginator-container {
+  padding: 0 16px;
+}
+
+::ng-deep .post-paginator .mat-mdc-paginator-page-size-label,
+::ng-deep .post-paginator .mat-mdc-paginator-range-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+::ng-deep .post-paginator .mat-mdc-paginator-navigation-button {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+::ng-deep .post-paginator .mat-mdc-paginator-navigation-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::ng-deep .post-paginator .mat-mdc-paginator-navigation-button[disabled] {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+::ng-deep .post-paginator .mat-mdc-select-value-text {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+::ng-deep .post-paginator .mat-mdc-select-arrow {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+::ng-deep .post-paginator .mat-mdc-form-field-infix {
+  min-height: 28px;
+}
+
+::ng-deep .mat-mdc-select-panel {
+  background: #1a1a2e !important;
+}
+
+::ng-deep .mat-mdc-option {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+::ng-deep .mat-mdc-option:hover:not(.mdc-list-item--disabled) {
+  background: rgba(99, 102, 241, 0.15) !important;
+}
+
+::ng-deep .mat-mdc-option.mdc-list-item--selected {
+  background: rgba(99, 102, 241, 0.25) !important;
+}

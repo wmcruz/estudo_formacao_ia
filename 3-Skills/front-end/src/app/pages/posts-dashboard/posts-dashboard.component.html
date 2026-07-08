@@ -1,0 +1,52 @@
+<div class="dashboard">
+  <div class="dashboard__background">
+    <div class="orb orb--1"></div>
+    <div class="orb orb--2"></div>
+    <div class="orb orb--3"></div>
+  </div>
+  <div class="dashboard__content">
+    <header class="dashboard__header">
+      <div class="dashboard__logo">
+        <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32" fill="currentColor">
+          <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/>
+        </svg>
+      </div>
+      <h1 class="dashboard__title">Posts Dashboard</h1>
+      <p class="dashboard__subtitle">Search and explore posts from the JSON Placeholder API</p>
+    </header>
+
+    <section class="dashboard__search">
+      <app-post-search-bar (searchPost)="onSearchPost($event)" />
+    </section>
+
+    @if (isLoading()) {
+      <div class="dashboard__loading">
+        <div class="spinner"></div>
+        <span>Loading post...</span>
+      </div>
+    }
+
+    @if (error(); as errMsg) {
+      <div class="dashboard__error">
+        <mat-icon>error</mat-icon>
+        <span>{{ errMsg }}</span>
+      </div>
+    }
+
+    @if (currentPost(); as post) {
+      <div class="dashboard__result">
+        <app-post-detail [post]="post" />
+      </div>
+    }
+
+    <section class="dashboard__table-section">
+      <h2 class="dashboard__section-title">All Posts</h2>
+      <app-post-table
+        [posts]="posts()"
+        [totalElements]="totalElements()"
+        [pageSize]="pageSize()"
+        [pageIndex]="pageIndex()"
+        (pageChange)="onPageChange($event)" />
+    </section>
+  </div>
+</div>

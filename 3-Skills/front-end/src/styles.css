@@ -1,0 +1,43 @@
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #12122a;
+  color: #ffffff;
+}
+
+.mat-mdc-paginator-container {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.mat-mdc-paginator .mat-mdc-select-value-text {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.mat-mdc-paginator .mat-mdc-select-arrow {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.mat-mdc-paginator-navigation-first,
+.mat-mdc-paginator-navigation-previous,
+.mat-mdc-paginator-navigation-next,
+.mat-mdc-paginator-navigation-last {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.mat-mdc-select-panel {
+  background: #1e1e3a !important;
+}
+
+.mat-mdc-option {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.mat-mdc-option:hover {
+  background: rgba(99, 102, 241, 0.15) !important;
+}
+
+.mat-mdc-option.mdc-list-item--selected {
+  background: rgba(99, 102, 241, 0.25) !important;
+}
