@@ -1,0 +1,38 @@
+<div class="search-container">
+  <div class="search-form">
+    <mat-form-field appearance="outline">
+      <mat-label>ID do Post</mat-label>
+      <input matInput type="number" [(ngModel)]="searchId" (keyup.enter)="onSearch()" min="1" placeholder="Ex: 1">
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary" [disabled]="!searchId || loading" (click)="onSearch()">
+      <mat-icon>search</mat-icon>
+      Buscar
+    </button>
+  </div>
+
+  <div class="loading-container" *ngIf="loading">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+
+  <div class="error-container" *ngIf="errorMessage && !loading" aria-live="polite">
+    <mat-card class="error-card">
+      <mat-card-content>
+        <mat-icon color="warn">error</mat-icon>
+        <span class="error-message">{{ errorMessage }}</span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="result-container" *ngIf="post && !loading && !errorMessage">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ post.title }}</mat-card-title>
+        <mat-card-subtitle>ID: {{ post.id }} | User ID: {{ post.userId }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ post.body }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

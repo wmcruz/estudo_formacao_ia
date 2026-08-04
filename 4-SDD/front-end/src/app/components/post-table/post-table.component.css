@@ -1,0 +1,63 @@
+.table-container {
+  position: relative;
+  min-height: 400px;
+  overflow: auto;
+}
+
+.post-table {
+  width: 100%;
+}
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-cell {
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 16px;
+}
+
+.body-cell {
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.empty-cell {
+  text-align: center;
+  padding: 24px;
+  font-style: italic;
+  color: #666;
+}
+
+.error-container {
+  padding: 16px;
+}
+
+.error-card {
+  background-color: #ffebee;
+}
+
+.error-card mat-card-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error-message {
+  color: #c62828;
+  font-weight: 500;
+}

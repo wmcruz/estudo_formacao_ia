@@ -1,0 +1,42 @@
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+mat-form-field {
+  width: 200px;
+}
+
+.search-form button {
+  height: 56px; /* Match form-field height */
+  margin-bottom: 22px; /* Align with input baseline */
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+
+.error-card {
+  background-color: #ffebee;
+}
+
+.error-card mat-card-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error-message {
+  color: #c62828;
+  font-weight: 500;
+}
