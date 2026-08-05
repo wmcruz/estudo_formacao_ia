@@ -34,6 +34,21 @@ describe('PostSearchComponent', () => {
     expect(input).toBeTruthy();
   });
 
+  it('33: should apply the Material theme color to the primary button', () => {
+    component.searchId = 5;
+    fixture.detectChanges();
+
+    const button = fixture.nativeElement.querySelector('button.mat-mdc-raised-button.mat-primary');
+    const style = getComputedStyle(button);
+
+    expect(style.backgroundColor).toBe('rgb(63, 81, 181)');
+  });
+
+  it('34: should render the input with the ID do Post label', () => {
+    const label = fixture.nativeElement.querySelector('label[for="mat-input-0"], mat-label');
+    expect(fixture.nativeElement.textContent).toContain('ID do Post');
+  });
+
   it('32: should render search button', () => {
     const button = fixture.nativeElement.querySelector('button');
     expect(button).toBeTruthy();

@@ -1,7 +1,4 @@
-export interface ErrorDetail {
-  code: string;
-  message: string;
-}
+import { ErrorDetail } from './error-detail.model';
 
 export interface ErrorResponse {
   error: ErrorDetail;

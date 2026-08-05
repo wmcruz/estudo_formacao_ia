@@ -79,7 +79,9 @@ class PostControllerTest {
     @Test
     void fetchPostById_shouldReturn400OnInvalidStringId() throws Exception {
         mockMvc.perform(get("/api/posts/abc"))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error.code").value("INVALID_POST_ID"))
+                .andExpect(jsonPath("$.error.message").value("Post ID must be a positive integer"));
     }
 
     @Test

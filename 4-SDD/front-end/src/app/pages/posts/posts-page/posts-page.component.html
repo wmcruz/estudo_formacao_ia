@@ -7,9 +7,9 @@
   <section class="search-section">
     <h2>Buscar Post por ID</h2>
     <app-post-search
-      [post]="searchedPost"
-      [loading]="searchLoading"
-      [errorMessage]="searchError"
+      [post]="searchedPost()"
+      [loading]="searchLoading()"
+      [errorMessage]="searchError()"
       (search)="onSearch($event)">
     </app-post-search>
   </section>
@@ -17,9 +17,9 @@
   <section class="table-section">
     <h2>Todos os Posts</h2>
     <app-post-table
-      [posts]="posts"
-      [loading]="tableLoading"
-      [errorMessage]="tableError">
+      [posts]="posts()"
+      [loading]="tableLoading()"
+      [errorMessage]="tableError()">
     </app-post-table>
   </section>
 </div>

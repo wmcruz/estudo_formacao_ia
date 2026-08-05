@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -24,6 +25,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<ErrorResponseDto> handleIllegalArgument(IllegalArgumentException ex) {
         ErrorResponseDto error = new ErrorResponseDto(new ErrorResponseDto.ErrorDetail("INVALID_POST_ID", ex.getMessage()));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ErrorResponseDto> handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
+        ErrorResponseDto error = new ErrorResponseDto(new ErrorResponseDto.ErrorDetail("INVALID_POST_ID", "Post ID must be a positive integer"));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 }

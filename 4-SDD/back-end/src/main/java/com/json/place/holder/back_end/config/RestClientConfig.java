@@ -8,13 +8,9 @@ import org.springframework.web.client.RestClient;
 @Configuration
 public class RestClientConfig {
 
-    @Value("${jsonplaceholder.url}")
-    private String jsonplaceholderUrl;
-
     @Bean
-    public RestClient restClient() {
-        return RestClient.builder()
-                .baseUrl(jsonplaceholderUrl)
-                .build();
+    public RestClient restClient(RestClient.Builder builder,
+                                 @Value("${jsonplaceholder.url}") String baseUrl) {
+        return builder.baseUrl(baseUrl).build();
     }
 }

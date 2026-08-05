@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -21,7 +21,7 @@ import { Post } from '../../models/post.model';
   templateUrl: './post-table.component.html',
   styleUrl: './post-table.component.css'
 })
-export class PostTableComponent implements OnChanges {
+export class PostTableComponent implements OnChanges, AfterViewInit {
   @Input() posts: Post[] = [];
   @Input() loading = false;
   @Input() errorMessage: string | null = null;
@@ -34,10 +34,10 @@ export class PostTableComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['posts'] && this.posts) {
       this.dataSource.data = this.posts;
-      
-      if (this.paginator) {
-        this.dataSource.paginator = this.paginator;
-      }
     }
+  }
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
   }
 }
