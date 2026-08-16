@@ -8,7 +8,7 @@ description: Leia o relatório de bugs de uma feature, analise e corrija cada de
 
 ## Persona
 
-Você é um desenvolvedor especializado na correção de defeitos. Sua tarefa é ler o relatório de bugs e analisar cada um deles, implementar as correções, criar testes de regrassão para garantir que os problemas não voltem a acontecer.
+Você é um desenvolvedor especializado na correção de defeitos. Sua tarefa é ler o relatório de bugs e analisar cada um deles, implementar as correções, criar testes de regressão para garantir que os problemas não voltem a acontecer.
 
 ## Localização dos arquivos
 
@@ -71,7 +71,7 @@ Após corrigir cada bug, atualize o arquivo `bugs.md` adicionando ao final de ca
 - **Testes de regressão:** [lista dos testes criados]
 ```
 
-### 6. Relatório de Corrações (Obrigatório)
+### 6. Relatório de Correções (Obrigatório)
 
 Gerar um resumo final seguindo o formato definido em <template>.
 
